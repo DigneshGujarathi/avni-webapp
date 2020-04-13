@@ -35,6 +35,7 @@ const urlMapping = {
   locations: "locations",
   program: "web/program",
   subjectType: "web/subjectType",
+  reportType: "web/reportType",
   encounterType: "web/encounterType",
   language: "organisationConfig",
   myDashboardFilters: "organisationConfig",

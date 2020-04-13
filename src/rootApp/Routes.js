@@ -10,6 +10,8 @@ import DataEntry from "../dataEntryApp/DataEntry";
 import Homepage from "./views/Homepage";
 import Translations from "../translations";
 import Export from "../reports/Export";
+import ReportAdmin from "../reports/ReportAdmin";
+import ReportList from "../reports/ReportList";
 import OrgManagerAppDesigner from "../adminApp/OrgManagerAppDesigner";
 
 const RestrictedRoute = ({ component: C, allowedRoles, currentUserRoles, ...rest }) => (
@@ -80,6 +82,20 @@ const Routes = ({ user, organisation }) => (
       allowedRoles={[ROLES.ORG_ADMIN, ROLES.ADMIN]}
       currentUserRoles={user.roles}
       component={WithProps({ user, organisation }, Export)}
+    />
+    <RestrictedRoute
+      exact
+      path="/export/reportadmin"
+      allowedRoles={[ROLES.ORG_ADMIN, ROLES.ADMIN]}
+      currentUserRoles={user.roles}
+      component={WithProps({ user, organisation }, ReportAdmin)}
+    />
+    <RestrictedRoute
+      exact
+      path="/export/reportlist"
+      allowedRoles={[ROLES.ORG_ADMIN, ROLES.ADMIN]}
+      currentUserRoles={user.roles}
+      component={WithProps({ user, organisation }, ReportList)}
     />
     <Route
       component={() => (
